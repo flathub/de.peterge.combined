@@ -8,6 +8,7 @@ command: godot-runner
 rename-icon: icon
 
 finish-args:
+  - --socket=pulseaudio
   - --socket=x11
   - --share=ipc
   - --device=dri
