@@ -1,0 +1,22 @@
+diff --git a/de.peterge.combined.desktop b/de.peterge.combined.desktop
+index 66d87a5..80bf0c8 100644
+--- a/de.peterge.combined.desktop
++++ b/de.peterge.combined.desktop
+@@ -2,14 +2,11 @@
+ Version=1.0
+ Encoding=UTF-8
+ Type=Application
+-NoDisplay=false
+-Terminal=false
+-Exec="Combined!.x86_64"
++Exec=godot-runner
+ Icon=icon
+ Name=Combined!
+-Comment=
+ Categories=Game;LogicGame;
+-GenericName=Combined! is a block puzzle game. Your goal is to connect blocks to get higher blocks on the board.
+-GenericName[de]=Combined! ist ein Blockrätselspiel. Dein Ziel ist es, Blöcke zu verbinden, um höhere Blöcke auf das Board zu bekommen.
++GenericName=Block puzzle game
++GenericName[de]=Blockrätselspiel
+ Comment=Place three blocks with the same number and colour next to each other to connect them - horizontally, vertically or both. You can also rotate blocks before you place them!
+ Comment[de]=Platziere drei Blöcke mit derselben Nummer und Farbe nebeneinander, um sie zu verbinden – horizontal, vertikal oder beides. Du kannst Blöcke auch drehen, bevor Du sie platzierst!

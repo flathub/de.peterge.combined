@@ -1,11 +1,14 @@
 app-id: de.peterge.combined
+base: org.godotengine.godot.BaseApp
+base-version: 3.3-23.08
 runtime: org.freedesktop.Platform
-runtime-version: '21.08'
+runtime-version: '23.08'
 sdk: org.freedesktop.Sdk
-command: "Combined!.x86_64"
+command: godot-runner
 rename-icon: icon
 
 finish-args:
+  - --socket=pulseaudio
   - --socket=x11
   - --share=ipc
   - --device=dri
@@ -14,24 +17,16 @@ modules:
   - name: combined
     buildsystem: simple
     build-commands:
-      - install -D "Combined!.x86_64" "/app/bin/Combined!.x86_64"
-      - install -D "Combined!.pck" "/app/bin/Combined!.pck"
+      - install -Dm644 "Combined!.pck" /app/bin/godot-runner.pck
       - install -Dm644 icon.png -t /app/bin/icon.png
       - install -Dm644 icon.png -t /app/share/icons/hicolor/256x256/apps/
       - install -Dm644 de.peterge.combined.desktop /app/share/applications/de.peterge.combined.desktop
       - install -Dm644 de.peterge.combined.metainfo.xml /app/share/metainfo/de.peterge.combined.metainfo.xml
     sources:
-      - type: file
-        url: https://gitlab.com/peterge/combined-assets/-/raw/main/Combined!.x86_64?inline=false
-        sha256: 926ce89db64cdc484d31e0303146f32187a469cea20597f367b8dc5bb2ff560e
-      - type: file
-        url: https://gitlab.com/peterge/combined-assets/-/raw/main/Combined!.pck?inline=false
-        sha256: 170c93fc59f64e70611f27bb3f31108798d2c56bf765a1b56d9a31923d7dff67
-      - type: file
-        url: https://gitlab.com/peterge/combined-assets/-/raw/main/icon.png?inline=false
-        sha256: 53ccff3334e391e725e49d1c2fdbd5b1829c14fb97d3f772189acd12f4eaddcf
-      - type: file
-        url: https://gitlab.com/peterge/combined-assets/-/raw/main/de.peterge.combined.desktop?inline=false
-        sha256: 649b6dae0926fe875dfebc26de18d525caa8348e2b3ea4f2d4e2b31eb2d98434
+      - type: git
+        url: https://gitlab.com/peterge/combined-assets.git
+        commit: 269bf8594659b7712e269f1d65ee73de1587928e
+      - type: patch
+        path: combined-appdata.patch
       - type: file
         path: de.peterge.combined.metainfo.xml
